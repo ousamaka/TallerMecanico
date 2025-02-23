@@ -13,6 +13,7 @@ public record Vehiculo(String marca, String modelo, String matricula) {
         validarMatricula(matricula);
     }
 
+
     private void validarMarca(String marca) {
         Objects.requireNonNull(marca, "La marca no puede ser nula.");
         if (!marca.matches(ER_MARCA)) {
