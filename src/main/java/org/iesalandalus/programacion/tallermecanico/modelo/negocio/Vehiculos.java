@@ -19,7 +19,7 @@ public class Vehiculos {
         return new ArrayList<>(vehiculos); // Devuelve copia defensiva
     }
 
-    public void insertar(Vehiculo vehiculo) throws TallerMecanicoExcepcion{
+    public void insertar(Vehiculo vehiculo) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(vehiculo, "No se puede insertar un vehículo nulo.");
         if (vehiculos.contains(vehiculo)) {
             throw new TallerMecanicoExcepcion("Ya existe un vehículo con esa matrícula.");
@@ -37,7 +37,7 @@ public class Vehiculos {
     }
 
     public void borrar(Vehiculo vehiculo) throws TallerMecanicoExcepcion {
-        Objects.requireNonNull(vehiculo,"No se puede borrar un vehículo nulo.");
+        Objects.requireNonNull(vehiculo, "No se puede borrar un vehículo nulo.");
         if (!vehiculos.remove(vehiculo)) {
             throw new TallerMecanicoExcepcion("No existe ningún vehículo con esa matrícula.");
         }
