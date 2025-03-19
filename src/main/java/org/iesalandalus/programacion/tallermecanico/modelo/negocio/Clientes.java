@@ -2,71 +2,69 @@ package org.iesalandalus.programacion.tallermecanico.modelo.negocio;
 
 import org.iesalandalus.programacion.tallermecanico.modelo.TallerMecanicoExcepcion;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Clientes {
+    private final List<Cliente> coleccionClientes;
 
-    Cliente cliente;
-
-    private List<Cliente> clientes;
-
-    public void Clientes () {
-        clientes = new ArrayList<>();
+    public Clientes() {
+        coleccionClientes = new ArrayList<>();
     }
 
     public List<Cliente> get() {
-        return new ArrayList<>(clientes); // Devuelve copia
+        return new ArrayList<>(coleccionClientes);
     }
 
     public void insertar(Cliente cliente) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(cliente, "No se puede insertar un cliente nulo.");
-        if (clientes.contains(cliente)) {
-            throw new TallerMecanicoExcepcion("Ya existe un vehículo con esa matrícula.");
+        if (coleccionClientes.contains(cliente)) {
+            throw new TallerMecanicoExcepcion("Ya existe un cliente con ese DNI.");
         }
-        clientes.add(cliente);
+        coleccionClientes.add(cliente);
     }
 
-    public boolean modificar(Cliente cliente,String nombre, String telefono) {
-        boolean cumpleRequisito = true;
-        Objects.requireNonNull(cliente,"No se puede modificar un cliente nulo.");
-
-        Cliente posicionEncontrado = buscar(cliente);
-        if (posicionEncontrado == null) {
-            throw new IllegalArgumentException("El cliente no esta en la lista Clientes");
+    public Cliente modificar(Cliente cliente, String nombre, String telefono) throws TallerMecanicoExcepcion {
+        Objects.requireNonNull(cliente, "No se puede modificar un cliente nulo.");
+        Cliente modificado = null;
+        if (!coleccionClientes.contains(cliente)) {
+            throw new TallerMecanicoExcepcion("No existe ningún cliente con ese DNI.");
         }
-        if (telefono.isBlank() && nombre != null){
-            posicionEncontrado.setNombre(nombre);
+        if (nombre == null && telefono == null) {
+            modificado = null;
+        } else if (telefono == null) {
+            cliente.setNombre(nombre);
+            modificado = cliente;
+        } else if(nombre == null){
+            cliente.setTelefono(telefono);
+            modificado = cliente;
+        }else {
+            cliente.setTelefono(telefono);
+            cliente.setNombre(nombre);
+            modificado = cliente;
         }
-        if (nombre.isBlank() && telefono != null){
-            posicionEncontrado.setTelefono(telefono);
-        }
-        if (nombre != null && telefono != null){
-            posicionEncontrado.setNombre(nombre);
-            posicionEncontrado.setTelefono(telefono);
-
-        }
-        return cumpleRequisito;
+        return modificado;
     }
 
     public Cliente buscar(Cliente cliente) {
         Objects.requireNonNull(cliente, "No se puede buscar un cliente nulo.");
-        Cliente clienteEncontrado = null;
-        int posicion = clientes.indexOf(cliente);
-        if (posicion != -1) {
-            clienteEncontrado = clientes.get(posicion);
+        Cliente buscado;
+        if (!coleccionClientes.contains(cliente)) {
+            buscado = null;
+        } else {
+            buscado = coleccionClientes.get(coleccionClientes.indexOf(cliente));
         }
-        return clienteEncontrado;
+        return buscado;
     }
+
     public void borrar(Cliente cliente) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(cliente, "No se puede borrar un cliente nulo.");
-        if (!clientes.remove(cliente)) {
-            throw new TallerMecanicoExcepcion("No existe ningún cliente con ese dni.");
+        if (!coleccionClientes.contains(cliente)) {
+            throw new TallerMecanicoExcepcion("No existe ningún cliente con ese DNI.");
         }
+        coleccionClientes.remove(cliente);
     }
+
 }
-
-

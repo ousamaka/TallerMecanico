@@ -9,28 +9,28 @@ import java.util.Objects;
 
 public class Vehiculos {
 
-    private final List<Vehiculo> vehiculos;
+    private final List<Vehiculo> Coleccionvehiculos;
 
     public Vehiculos() {
-        vehiculos = new ArrayList<>();
+        Coleccionvehiculos = new ArrayList<>();
     }
 
     public List<Vehiculo> get() {
-        return new ArrayList<>(vehiculos); // Devuelve copia defensiva
+        return new ArrayList<>(Coleccionvehiculos); // Devuelve copia defensiva
     }
 
     public void insertar(Vehiculo vehiculo) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(vehiculo, "No se puede insertar un vehículo nulo.");
-        if (vehiculos.contains(vehiculo)) {
+        if (Coleccionvehiculos.contains(vehiculo)) {
             throw new TallerMecanicoExcepcion("Ya existe un vehículo con esa matrícula.");
         }
-        vehiculos.add(vehiculo);
+        Coleccionvehiculos.add(vehiculo);
     }
 
     public Vehiculo buscar(Vehiculo vehiculo) {
         Objects.requireNonNull(vehiculo, "No se puede buscar un vehículo nulo.");
         Vehiculo vehiculoEncontrado = null;
-        if (vehiculos.contains(vehiculo)) {
+        if (Coleccionvehiculos.contains(vehiculo)) {
             vehiculoEncontrado = vehiculo;
         }
         return vehiculoEncontrado;
@@ -38,7 +38,7 @@ public class Vehiculos {
 
     public void borrar(Vehiculo vehiculo) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(vehiculo, "No se puede borrar un vehículo nulo.");
-        if (!vehiculos.remove(vehiculo)) {
+        if (!Coleccionvehiculos.remove(vehiculo)) {
             throw new TallerMecanicoExcepcion("No existe ningún vehículo con esa matrícula.");
         }
     }
