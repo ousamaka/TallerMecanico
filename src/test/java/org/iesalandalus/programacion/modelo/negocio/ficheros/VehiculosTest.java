@@ -1,4 +1,5 @@
 package org.iesalandalus.programacion.modelo.negocio.ficheros;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.ficheros.Vehiculos;
 
 import org.iesalandalus.programacion.tallermecanico.modelo.TallerMecanicoExcepcion;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;

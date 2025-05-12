@@ -1,4 +1,5 @@
 package org.iesalandalus.programacion.modelo.negocio.ficheros;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.ficheros.Trabajos;
 
 import org.iesalandalus.programacion.tallermecanico.modelo.TallerMecanicoExcepcion;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.*;
@@ -6,6 +7,7 @@ import org.iesalandalus.programacion.tallermecanico.modelo.negocio.ITrabajos;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 
 import java.time.LocalDate;
 import java.util.List;

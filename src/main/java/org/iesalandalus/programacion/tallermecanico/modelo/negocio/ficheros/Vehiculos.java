@@ -29,7 +29,7 @@ public class Vehiculos implements IVehiculos {
         coleccionVehiculos = new ArrayList<>();
     }
 
-    static Vehiculos getInstancia() {
+    public static Vehiculos getInstancia() {
         if (instancia == null) {
             instancia = new Vehiculos();
         }

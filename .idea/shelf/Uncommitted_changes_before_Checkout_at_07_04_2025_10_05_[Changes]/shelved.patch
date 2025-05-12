@@ -1,0 +1,17 @@
+Index: src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.iesalandalus.programacion.tallermecanico;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java b/src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java
+--- a/src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java	(revision 0758e904e6916f7a22a82d68cb4b78a7c9aaa6da)
++++ b/src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java	(date 1744013064387)
+@@ -2,6 +2,5 @@
+ 
+ public class Main {
+     public static void main(String[] args) {
+-
+     }
+ }

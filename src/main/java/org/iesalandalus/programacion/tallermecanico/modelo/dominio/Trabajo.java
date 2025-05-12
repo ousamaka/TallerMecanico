@@ -8,8 +8,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 public abstract class Trabajo {
-    static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ISO_DATE;
-    private static final float FACTOR_DIA = 10;
+    public static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ISO_DATE;
+    static final float FACTOR_DIA = 10;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
     private int horas;
